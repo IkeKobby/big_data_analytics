@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background and Title -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Apache Storm Architecture</text>
+  
+  <!-- Data Sources -->
+  <rect x="50" y="100" width="120" height="60" rx="5" ry="5" fill="#AED6F1" stroke="#3498DB" stroke-width="2"/>
+  <text x="110" y="135" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Data Sources</text>
+  <rect x="50" y="180" width="120" height="60" rx="5" ry="5" fill="#AED6F1" stroke="#3498DB" stroke-width="2"/>
+  <text x="110" y="215" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Kafka</text>
+  <rect x="50" y="260" width="120" height="60" rx="5" ry="5" fill="#AED6F1" stroke="#3498DB" stroke-width="2"/>
+  <text x="110" y="295" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">JMS</text>
+  
+  <!-- Storm Nimbus -->
+  <rect x="250" y="150" width="130" height="130" rx="5" ry="5" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="315" y="180" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Nimbus</text>
+  <text x="315" y="205" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">- Job Scheduler</text>
+  <text x="315" y="225" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">- Distributes Tasks</text>
+  <text x="315" y="245" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">- Monitors Topology</text>
+  <text x="315" y="265" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">- Fault Management</text>
+  
+  <!-- Zookeeper -->
+  <rect x="300" y="350" width="120" height="60" rx="5" ry="5" fill="#FADBD8" stroke="#E74C3C" stroke-width="2"/>
+  <text x="360" y="385" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Zookeeper</text>
+  
+  <!-- Storm Supervisor and Workers -->
+  <rect x="460" y="100" width="120" height="60" rx="5" ry="5" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="520" y="135" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Supervisor</text>
+  
+  <rect x="460" y="180" width="120" height="60" rx="5" ry="5" fill="#FCF3CF" stroke="#F1C40F" stroke-width="2"/>
+  <text x="520" y="215" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Worker</text>
+  
+  <rect x="460" y="260" width="120" height="60" rx="5" ry="5" fill="#FCF3CF" stroke="#F1C40F" stroke-width="2"/>
+  <text x="520" y="295" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" fill="#333">Worker</text>
+  
+  <!-- Topology Components -->
+  <rect x="630" y="100" width="120" height="60" rx="5" ry="5" fill="#D2B4DE" stroke="#8E44AD" stroke-width="2"/>
+  <text x="690" y="135" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Spout</text>
+  
+  <rect x="630" y="180" width="120" height="60" rx="5" ry="5" fill="#D2B4DE" stroke="#8E44AD" stroke-width="2"/>
+  <text x="690" y="215" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Bolt</text>
+  
+  <rect x="630" y="260" width="120" height="60" rx="5" ry="5" fill="#D2B4DE" stroke="#8E44AD" stroke-width="2"/>
+  <text x="690" y="295" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Bolt</text>
+  
+  <!-- Output Systems -->
+  <rect x="630" y="350" width="120" height="60" rx="5" ry="5" fill="#EDBB99" stroke="#D35400" stroke-width="2"/>
+  <text x="690" y="385" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Output Systems</text>
+  
+  <!-- Connecting Arrows -->
+  <!-- Data Sources to Nimbus -->
+  <line x1="170" y1="180" x2="250" y2="200" stroke="#555" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="240,185 250,200 235,205" fill="#555"/>
+  
+  <!-- Nimbus to Supervisor -->
+  <line x1="380" y1="180" x2="460" y2="130" stroke="#555" stroke-width="2"/>
+  <polygon points="450,125 460,130 450,135" fill="#555"/>
+  
+  <!-- Nimbus to Zookeeper -->
+  <line x1="315" y1="280" x2="350" y2="350" stroke="#555" stroke-width="2"/>
+  <polygon points="340,340 350,350 335,345" fill="#555"/>
+  
+  <!-- Supervisor to Zookeeper -->
+  <line x1="490" y1="160" x2="380" y2="350" stroke="#555" stroke-width="2"/>
+  <polygon points="385,340 380,350 370,335" fill="#555"/>
+  
+  <!-- Supervisor to Workers -->
+  <line x1="520" y1="160" x2="520" y2="180" stroke="#555" stroke-width="2"/>
+  <polygon points="515,170 520,180 525,170" fill="#555"/>
+  <line x1="520" y1="240" x2="520" y2="260" stroke="#555" stroke-width="2"/>
+  <polygon points="515,250 520,260 525,250" fill="#555"/>
+  
+  <!-- Workers to Topology Components -->
+  <line x1="580" y1="210" x2="630" y2="210" stroke="#555" stroke-width="2"/>
+  <polygon points="620,205 630,210 620,215" fill="#555"/>
+  <line x1="580" y1="290" x2="630" y2="290" stroke="#555" stroke-width="2"/>
+  <polygon points="620,285 630,290 620,295" fill="#555"/>
+  
+  <!-- Topology Components to Output -->
+  <line x1="690" y1="320" x2="690" y2="350" stroke="#555" stroke-width="2"/>
+  <polygon points="685,340 690,350 695,340" fill="#555"/>
+  
+  <!-- Legend -->
+  <rect x="50" y="430" width="15" height="15" fill="#AED6F1" stroke="#3498DB" stroke-width="1"/>
+  <text x="75" y="443" font-family="Arial" font-size="12" fill="#333">Input Sources</text>
+  
+  <rect x="170" y="430" width="15" height="15" fill="#D5F5E3" stroke="#27AE60" stroke-width="1"/>
+  <text x="195" y="443" font-family="Arial" font-size="12" fill="#333">Storm Master</text>
+  
+  <rect x="290" y="430" width="15" height="15" fill="#FADBD8" stroke="#E74C3C" stroke-width="1"/>
+  <text x="315" y="443" font-family="Arial" font-size="12" fill="#333">Coordination</text>
+  
+  <rect x="410" y="430" width="15" height="15" fill="#FCF3CF" stroke="#F1C40F" stroke-width="1"/>
+  <text x="435" y="443" font-family="Arial" font-size="12" fill="#333">Workers</text>
+  
+  <rect x="510" y="430" width="15" height="15" fill="#D2B4DE" stroke="#8E44AD" stroke-width="1"/>
+  <text x="535" y="443" font-family="Arial" font-size="12" fill="#333">Processing</text>
+  
+  <rect x="610" y="430" width="15" height="15" fill="#EDBB99" stroke="#D35400" stroke-width="1"/>
+  <text x="635" y="443" font-family="Arial" font-size="12" fill="#333">Output</text>
+</svg> 
